@@ -435,6 +435,24 @@
    PROGRESS BAR
    ========================================================== */
 
+/* ==========================================================
+   FIX GOTO DIALOG OVERFLOW
+   Slidev's goto dialog (triggered by "g") sits at top: -5rem
+   when closed. Fuse.js returns all slides for an empty query
+   so the autocomplete list is always rendered. With 30+
+   slides the list overflows past the negative offset into
+   the visible viewport.
+
+   Fix: the goto input has :disabled="!showGotoDialog", so
+   when the dialog is closed the input is disabled. We use
+   :has(input:disabled) to detect the closed state and hide
+   the entire dialog.
+   ========================================================== */
+
+#slidev-goto-dialog:has(input:disabled) {
+  visibility: hidden !important;
+}
+
 .slidev-progress {
   background: var(--ap-blue) !important;
 }
