@@ -49,12 +49,15 @@
 
 }
 
-/* Override Slidev's bg-main shortcut (UnoCSS: bg-white dark:bg-[#121212])
-   applied on #slide-content so the theme background fills the full viewport. */
+/* Override Slidev's default white background at every level of the DOM
+   hierarchy so the theme background fills the full viewport. */
 #slide-content,
-#slide-content.bg-main,
 #slide-content.slidev-slide-content,
 .slidev-slide-content {
+  background-color: var(--ap-white) !important;
+}
+
+#slideshow > div {
   background-color: var(--ap-white) !important;
 }
 
