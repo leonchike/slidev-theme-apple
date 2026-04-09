@@ -1,0 +1,440 @@
+/* ======================================================
+   slidev-theme-apple
+
+   Inspired by Apple's internal presentation design language:
+   - Dark gradient cover slides (near-black to black)
+   - Vibrant solid-color section dividers (system blue, purple, teal)
+   - Clean white body pages with SF Pro typography
+   - Frosted glass highlight cards
+   - Monochrome code blocks on light gray
+   - Geometric, precise, tech-forward aesthetic
+   ====================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* ---- Core palette ---- */
+  --ap-black: #1d1d1f;
+  --ap-white: #fbfbfd;
+  --ap-pure-white: #ffffff;
+  --ap-gray-light: #f5f5f7;
+  --ap-gray-medium: #86868b;
+  --ap-gray-dark: #6e6e73;
+  --ap-border: #d2d2d7;
+  --ap-border-light: #e8e8ed;
+
+  /* ---- Accent colors ---- */
+  --ap-blue: #0071e3;
+  --ap-purple: #bf5af2;
+  --ap-teal: #30b0c7;
+  --ap-orange: #ff9f0a;
+
+  /* ---- Gradient (cover) ---- */
+  --ap-gradient-start: #2d2d2d;
+  --ap-gradient-end: #000000;
+
+  /* ---- Code ---- */
+  --ap-code-bg: #f5f5f7;
+  --ap-code-text: #1d1d1f;
+
+  /* ---- Slidev overrides ---- */
+  --slidev-theme-primary: var(--ap-blue);
+}
+
+/* ==========================================================
+   GLOBAL SLIDE FRAME
+   ========================================================== */
+
+.slidev-page > div {
+
+}
+
+/* ==========================================================
+   DEFAULT LAYOUT (body slides)
+   Near-white background, generous padding, clean system feel
+   ========================================================== */
+
+.slidev-layout {
+  background: var(--ap-white) !important;
+  color: var(--ap-black) !important;
+  font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Inter", sans-serif !important;
+  padding: 1.5rem 1.75rem 1.25rem !important;
+  position: relative !important;
+}
+
+/* ---- Page number bottom-right ---- */
+.slidev-page-number {
+  font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Inter", sans-serif !important;
+  font-weight: 400 !important;
+  color: var(--ap-gray-medium) !important;
+  font-size: 0.8rem !important;
+}
+
+/* ==========================================================
+   TYPOGRAPHY
+   SF Pro Display for headings (semibold, tight tracking),
+   SF Pro Text for body (regular weight, relaxed line-height)
+   ========================================================== */
+
+.slidev-layout h1 {
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Inter", sans-serif !important;
+  font-weight: 600 !important;
+  color: var(--ap-black) !important;
+  font-size: 2.4rem !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.03em !important;
+  margin-bottom: 1.5rem !important;
+  border-bottom: none !important;
+}
+
+.slidev-layout h2 {
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Inter", sans-serif !important;
+  font-weight: 600 !important;
+  color: var(--ap-black) !important;
+  font-size: 1.15rem !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.02em !important;
+  margin-top: 1.4rem !important;
+  margin-bottom: 0.6rem !important;
+}
+
+.slidev-layout h3 {
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Inter", sans-serif !important;
+  font-weight: 600 !important;
+  color: var(--ap-black) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.01em !important;
+  margin-top: 1rem !important;
+  margin-bottom: 0.4rem !important;
+}
+
+.slidev-layout p,
+.slidev-layout li {
+  font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Inter", sans-serif !important;
+  font-weight: 400 !important;
+  color: var(--ap-black) !important;
+  font-size: 0.88rem !important;
+  line-height: 1.65 !important;
+}
+
+.slidev-layout strong {
+  font-weight: 600 !important;
+  color: var(--ap-black) !important;
+}
+
+/* ==========================================================
+   CODE BLOCKS
+   Light gray background, dark monochrome text, rounded corners
+   ========================================================== */
+
+.slidev-layout pre,
+.slidev-layout code {
+  font-family: "SF Mono", "Menlo", "Cascadia Code", "JetBrains Mono", monospace !important;
+}
+
+.slidev-layout pre {
+  background: var(--ap-code-bg) !important;
+  color: var(--ap-code-text) !important;
+  border-radius: 12px !important;
+  padding: 1.2rem 1.4rem !important;
+  font-size: 0.7rem !important;
+  line-height: 1.6 !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow-x: auto !important;
+}
+
+/* Override Shiki's inline token colors so all code text is dark */
+.slidev-layout pre code,
+.slidev-layout pre code span,
+.slidev-layout pre .shiki,
+.slidev-layout pre .shiki span,
+.slidev-layout pre .shiki code span {
+  color: var(--ap-code-text) !important;
+}
+
+.slidev-layout :not(pre) > code {
+  background: var(--ap-code-bg) !important;
+  color: var(--ap-black) !important;
+  padding: 0.15em 0.45em !important;
+  border-radius: 6px !important;
+  font-size: 0.82em !important;
+  font-weight: 500 !important;
+}
+
+/* ==========================================================
+   TABLES
+   Clean, minimal -- thin gray borders, no alternating colors
+   ========================================================== */
+
+.slidev-layout table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  font-size: 0.82rem !important;
+  margin: 0.6rem 0 !important;
+}
+
+.slidev-layout table th {
+  background: transparent !important;
+  color: var(--ap-black) !important;
+  font-weight: 600 !important;
+  text-align: left !important;
+  padding: 0.5rem 0.8rem !important;
+  font-size: 0.78rem !important;
+  border-bottom: 1.5px solid var(--ap-black) !important;
+}
+
+.slidev-layout table td {
+  padding: 0.5rem 0.8rem !important;
+  border-bottom: 1px solid var(--ap-border) !important;
+  vertical-align: top !important;
+}
+
+.slidev-layout table tr:nth-child(even) td {
+  background: transparent !important;
+}
+
+/* ==========================================================
+   LINKS
+   System blue, no underline by default (Apple style)
+   ========================================================== */
+
+.slidev-layout a {
+  color: var(--ap-blue) !important;
+  text-decoration: none !important;
+  font-weight: 400 !important;
+  transition: opacity 0.2s ease !important;
+}
+
+.slidev-layout a:hover {
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+  opacity: 0.85 !important;
+}
+
+/* ==========================================================
+   LISTS
+   Standard filled circle bullets
+   ========================================================== */
+
+.slidev-layout ul {
+  list-style: disc !important;
+  padding-left: 1.3rem !important;
+}
+
+.slidev-layout ul li {
+  padding-left: 0.2rem !important;
+  margin-bottom: 0.3rem !important;
+}
+
+.slidev-layout ul li::marker {
+  color: var(--ap-gray-dark) !important;
+  font-size: 0.7em !important;
+}
+
+.slidev-layout ul li::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* ==========================================================
+   FULL-BLEED SLIDES
+   Cover and section slides fill the entire viewport.
+   ========================================================== */
+
+.slidev-layout:has(.cover-slide),
+.slidev-layout:has(.section-slide) {
+  padding: 0 !important;
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+/* ==========================================================
+   COVER SLIDE
+   Dark gradient background (near-black to black), large white
+   semibold title centered in upper portion, optional subtitle
+   in lighter gray, brand text bottom-left
+   ========================================================== */
+
+.cover-slide {
+  background: linear-gradient(160deg, var(--ap-gradient-start) 0%, var(--ap-gradient-end) 100%) !important;
+  padding: 3.5rem 4rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  position: absolute !important;
+  inset: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.cover-slide h1 {
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Inter", sans-serif !important;
+  font-weight: 600 !important;
+  color: var(--ap-pure-white) !important;
+  font-size: 3.2rem !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.03em !important;
+  max-width: 80% !important;
+  margin-bottom: 0.6rem !important;
+}
+
+.cover-slide .subtitle {
+  font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Inter", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 1.1rem !important;
+  color: var(--ap-gray-medium) !important;
+  line-height: 1.5 !important;
+  max-width: 60% !important;
+  margin-top: 0 !important;
+}
+
+.cover-slide .brand {
+  font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Inter", sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+  color: var(--ap-gray-dark) !important;
+  letter-spacing: 0 !important;
+}
+
+/* ==========================================================
+   SECTION / TRANSITION SLIDE
+   Solid vibrant color background with chapter pill (white
+   border) and large white semibold title anchored bottom-left
+   ========================================================== */
+
+.section-slide {
+  padding: 3.5rem 4rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  position: absolute !important;
+  inset: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.section-slide.blue   { background: var(--ap-blue) !important; }
+.section-slide.purple { background: var(--ap-purple) !important; }
+.section-slide.teal   { background: var(--ap-teal) !important; }
+.section-slide.dark   { background: var(--ap-black) !important; }
+
+.section-slide .chapter-pill {
+  display: inline-block !important;
+  font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Inter", sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 0.82rem !important;
+  color: var(--ap-pure-white) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.6) !important;
+  border-radius: 100px !important;
+  padding: 0.25rem 0.9rem !important;
+  margin-bottom: 1rem !important;
+  background: transparent !important;
+  width: fit-content !important;
+}
+
+.section-slide h1 {
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Inter", sans-serif !important;
+  font-weight: 600 !important;
+  color: var(--ap-pure-white) !important;
+  font-size: 3rem !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.03em !important;
+  margin-bottom: 0 !important;
+}
+
+/* ==========================================================
+   BODY SLIDE WITH CHAPTER HEADER
+   Chapter pill top-left (blue border), large semibold h1,
+   two-column grid body
+   ========================================================== */
+
+.body-header .chapter-pill {
+  display: inline-block !important;
+  font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Inter", sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 0.78rem !important;
+  color: var(--ap-blue) !important;
+  border: 1.5px solid var(--ap-blue) !important;
+  border-radius: 100px !important;
+  padding: 0.2rem 0.8rem !important;
+  margin-bottom: 0.8rem !important;
+  background: transparent !important;
+}
+
+.body-header h1 {
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Inter", sans-serif !important;
+  font-weight: 600 !important;
+  color: var(--ap-black) !important;
+  font-size: 2.6rem !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.03em !important;
+  margin-bottom: 1.8rem !important;
+}
+
+/* ==========================================================
+   TWO COLUMN LAYOUT helper
+   ========================================================== */
+
+.two-col {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 2.5rem !important;
+}
+
+/* ==========================================================
+   HIGHLIGHT CARD
+   Frosted glass-style card for callout content on body slides
+   ========================================================== */
+
+.highlight-card {
+  background: var(--ap-gray-light) !important;
+  border-radius: 12px !important;
+  padding: 1.2rem 1.4rem !important;
+  border: 1px solid var(--ap-border-light) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+.highlight-card h2,
+.highlight-card h3 {
+  margin-top: 0 !important;
+}
+
+/* ==========================================================
+   METRIC DISPLAY
+   Large number + small label for key stats
+   ========================================================== */
+
+.metric {
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Inter", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 3.2rem !important;
+  line-height: 1.1 !important;
+  color: var(--ap-blue) !important;
+  letter-spacing: -0.03em !important;
+  margin-bottom: 0.2rem !important;
+}
+
+.metric .label {
+  display: block !important;
+  font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Inter", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 0.82rem !important;
+  color: var(--ap-gray-medium) !important;
+  letter-spacing: 0 !important;
+  margin-top: 0.25rem !important;
+}
+
+/* ==========================================================
+   PROGRESS BAR
+   ========================================================== */
+
+.slidev-progress {
+  background: var(--ap-blue) !important;
+}

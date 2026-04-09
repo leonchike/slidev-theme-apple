@@ -1,0 +1,32 @@
+{
+  "name": "slidev-theme-apple",
+  "version": "0.1.0",
+  "description": "Apple-inspired theme for Slidev — dark gradient covers, clean system typography, frosted glass elements for internal presentations and workshops",
+  "license": "MIT",
+  "keywords": [
+    "slidev-theme",
+    "slidev"
+  ],
+  "engines": {
+    "node": ">=18.0.0",
+    "slidev": ">=0.48.0"
+  },
+  "slidev": {
+    "colorSchema": "light",
+    "defaults": {
+      "fonts": {
+        "sans": "Inter",
+        "serif": "Inter",
+        "mono": "JetBrains Mono"
+      },
+      "highlighter": "shiki"
+    }
+  },
+  "scripts": {
+    "dev": "slidev example.md",
+    "build": "slidev build example.md"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^0.48.0"
+  }
+}
